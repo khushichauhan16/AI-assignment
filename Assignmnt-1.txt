@@ -1,0 +1,16 @@
+Problem :- Write an Algorithm for Monk-Tiger-Goat-Cabbage problem (condition is that boat can carry only 2 items at a time.)
+
+Solution :- Algorithm for the peoblem statement is as follows-
+            Step 1- Monk will take goat with him across the river.
+            step 2- Come back to the initial side of the river and this time he will take Tiger with him across
+                    the river.
+            step 3- Again Monk will come to the initial side of the river but not alone this time he must take 
+                    goat with him back to the initial side of the river and leave tiger alone to the other side
+                    of the river.
+            step 4- This time he will take cabbage with him to the other side of the river leaving goat to the
+                    initial side of the river.
+            step 5- Again he will come back to the initial side of the river alone leaving tiger and cabbage to
+                    the other side.
+            step 6- Now, only goat is left to the initial side of the river which he will take with him this time.
+
+            Now Monk, Tiger, Goat, Cabbage all are at the other side of the river.
