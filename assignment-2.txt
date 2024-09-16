@@ -1,0 +1,48 @@
+Problem 1:- On a Euclidean plane you have to reach point x to y. Design some heuristic method to reach x to y.There are some obstacles.
+
+Solution :- Heuristic Method using A* Algorithm:
+1- Imagine the Euclidean plane as a 2D grid where each cell represents a small portion of the plane.
+Some cells are blocked (representing obstacles) and cannot be traversed, while others are free to move through.
+
+2- g(n): The actual cost from the start (X) to the current point (n). This could be the distance or steps taken.
+h(n): The heuristic cost, which is the estimated cost from the current point (n) to the goal (Y). A commonly used heuristic is the Euclidean distance.
+Alternatively, you can use the Manhattan distance if movement is restricted to horizontal and vertical directions.
+f(n): The total estimated cost, which is the sum of g(n) and h(n):
+
+3- Heuristic Search Process:
+-Start at point X, and add it to an open list (a list of nodes to be evaluated).
+-For the current node (starting with X), evaluate all possible neighboring nodes (moving in all 8 directions unless obstacles block them).
+Calculate the f(n) for each neighboring node.
+-Move to the neighboring node with the lowest f(n) value.
+-Continue this process by evaluating each next-best node until you reach the goal (Y) or find that no path exists.
+-Maintain a closed list of nodes that have already been evaluated to avoid rechecking them.
+
+4- Handling Obstacles:
+When encountering an obstacle, simply skip that node (or mark it as "blocked") and continue evaluating other neighbors.
+Each obstacle (triangle, square, rectangle) can be represented by the coordinates of its vertices. This allows the algorithm to check if a point 
+is inside or outside the obstacle.
+
+Point-in-Shape Test: For each obstacle type, you need a different method to check if a point lies inside it:
+
+For a Square or Rectangle: You can check if the point lies between the bounds of its vertices.
+For a Triangle: Use a method like the Barycentric Coordinate System or Area Method to determine whether a point is inside the triangle.
+
+
+Problem 3:- A* search time and space complexity.
+
+Solution :- The time and space complexity of the A* search algorithm depends on several factors, including the branching factor, 
+the depth of the solution, and the quality of the heuristic function :
+Time Complexity of A* Algorithm:
+1-Best-Case (Perfect Heuristic): If the heuristic is perfect (i.e., h(n) always exactly equals the true cost from node n to the goal), A* behaves 
+like a direct greedy best-first search and only expands the nodes that lie on the optimal path.
+In this case, the time complexity is O(d), where d is the depth of the optimal solution.
+
+2- Worst-Case (No Heuristic or Poor Heuristic): If the heuristic function is poor or uninformative (e.g., h(n) = 0), A* reduces to a brute-force search like Dijkstra’s algorithm.
+In the worst case, A* explores every possible state, leading to a time complexity of O(b^d), where b is the branching factor and d is the depth of the solution.
+This is exponential in nature and can become intractable for large search spaces.
+
+3-Average Case (Admissible and Consistent Heuristic):The time complexity can be approximated as O(b^m), where m is the effective depth of the search tree, which can be much smaller than d depending on the heuristic's accuracy.
+
+Space Complexity of A* Algorithm:
+In the worst case, A* needs to store all expanded nodes in memory. This can lead to a space complexity of O(b^d), which is exponential with respect to the depth of the solution.
+
